@@ -27,12 +27,12 @@ _main:
 StringLOOP: 				; @FOR EACH CAHARACTER IN THE STRING
 		LDRB R5,[R1],#1 	; @Load each character of the string
 		CMP R5, #0		; @compare whether it is End of String
-		BEQ Exit		; @Branch to Done , if the String ends
-		SUB R5,R5,#0X30		;@get the value of 0 or 1 			
+		BEQ Exit		; @Branch to Exit, if the String ends
+		SUB R5,R5,#0X30		; @get the value of 0 or 1 			
 		MUL R4,R6,R5		; @Multiply Nibble Counter with the binary value
-		ADD R7,R7,R4		; @Add to get the Digit
-		CMP R6, #1		; @compare whether it 3
-		BEQ NIBBLEDone		; @Branch to Done , if the String ends	
+		ADD R7,R7,R4		; @Add to get the Decimal Digit
+		CMP R6, #1		; @compare whether it is 1
+		BEQ NIBBLEDone		; @Branch to NIBBLEDone		
 		MOV R6,R6,LSR#1		; @Decrement Nibble Variable
 		B StringLOOP
 NIBBLEDone:

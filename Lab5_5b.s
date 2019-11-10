@@ -22,11 +22,11 @@ _main:
 StringLOOP: 				; @FOR EACH CAHARACTER IN THE STRING
 		LDRB R5,[R1],#1 	; @Load each character of the string
 		CMP R5, #0		; @compare whether it is End of String
-		BEQ Exit		; @Branch to Done , if the String ends
+		BEQ Exit		; @Branch to Exit, if the String ends
 		CMP R5, #0X30		; @compare whether it is 0
-		BEQ AddtoNumber		; @Branch to Done , if the String ends
-		CMP R5, #0X31		; @compare whether it is 0
-		BEQ AddtoNumber		; @Branch to Done , if the String ends
+		BEQ AddtoNumber		; @Branch to AddtoNumber
+		CMP R5, #0X31		; @compare whether it is 1
+		BEQ AddtoNumber		; @Branch to AddtoNumber
 		
 		MOV R3, #0x00		; @Clear the output
 		MOV R4, #0xFF		; @Set the error
